@@ -42,7 +42,7 @@
     <script>
       const provider = new ethers.providers.Web3Provider(
         window.ethereum,
-        "ropsten"
+        "goerli"
       );
 
       const MoodContractAddress = "0x46551b46d640f4123514E6A3508d2CEa9DbcFD7C";
@@ -89,14 +89,14 @@
       });
 
       async function getMood() {
-        const getMoodPromise = MoodContract.getMood();
+        const getMoodPromise = MoodContract.get_mood();
         const Mood = await getMoodPromise;
         console.log(Mood);
       }
 
       async function setMood() {
         const mood = document.getElementById("mood").value;
-        const setMoodPromise = MoodContract.setMood(mood);
+        const setMoodPromise = MoodContract.set_mood(mood);
         await setMoodPromise;
       }
     </script>
